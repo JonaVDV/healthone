@@ -1,0 +1,9 @@
+@use "../abstracts/mixins" as *;
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 2em;
+  // max-width: 60em;
+  margin: 3em 4em;
+}

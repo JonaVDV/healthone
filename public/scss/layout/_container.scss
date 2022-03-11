@@ -1,0 +1,58 @@
+@use "../abstracts/mixins" as *;
+
+body {
+  display: grid;
+  min-height: 100vh;
+  // gap: 2em 0;
+  grid-auto-rows: min-content;
+  grid-template-areas: 
+    'nav'
+    'header'
+    'main'
+    'main'
+  ;
+  
+  @include mq(small){
+    min-height: 100vh;
+    // grid-auto-rows: min-content;
+    grid-template-areas: 
+    'nav nav'
+    'header header'
+    'main main'
+    'main main'
+    ;
+  }
+  
+  @include mq(medium) {
+    min-height: 100vh;
+    grid-template-areas:
+      "header header nav"
+      "main main nav";
+  }
+}
+
+.multipart-form {
+  display: flex;
+  width: 25em;
+  overflow: hidden;
+}
+
+.review-container {
+  display: grid;
+  gap: 2em;
+  grid-auto-columns: 1fr;
+
+  @include mq(small) {
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+  }
+  @include mq(medium){
+
+  }
+}
+
+.categories-list {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+  margin: 3em 4em;
+}

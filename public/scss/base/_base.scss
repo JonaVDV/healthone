@@ -1,0 +1,84 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+:root {
+  @each $base, $shades in $colors {
+    @each $shade, $value in $shades {
+      --#{$base}-#{$shade}: #{$value};
+    }
+  }
+  --ff-primary: "Roboto", sans-serif;
+  --fw-primary: 400;
+  --fw-secondary: 600;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.6;
+  width: 100vw;
+  position: relative;
+  background-color: var(--clr-main-100);
+  font-family: var(--ff-primary);
+}
+ul {
+  list-style: none;
+  font-weight: var(--fw-secondary);
+}
+.banner {
+  max-width: 100%;
+  // min-height: 50%;
+}
+header {
+  grid-area: header;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 25ch;
+  line-height: 1;
+  color: var(--clr-text-900);
+}
+p{
+  max-width: 50ch;
+  color: var(--clr-text-700);
+}
+
+main{
+  grid-area: main;
+}
+
+.information {
+  padding-inline: 2em;
+  h2 {
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 2rem + 1vw, 3rem);
+  }
+  p {
+    font-size: min(1rem, 1.125rem);
+  }
+  @include mq(small) {
+    padding-inline: 3.5em;
+  }
+  @include mq(medium) {
+    padding-inline: 5em;
+  }
+}
+.buttons {
+  padding-inline: 5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5em;
+  grid-area: main;
+}

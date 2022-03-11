@@ -1,0 +1,133 @@
+@use "../abstracts/mixins" as *;
+
+.card {
+  position: relative;
+  max-width: 20em;
+  padding: 2em;
+  border-radius: .6em;
+  @include flex(column);
+  background-color: var(--clr-main-200);
+
+  border: 2px solid black;
+
+  .card-header {
+    padding-inline: 2em;
+  }
+
+  .card-body {
+    position: relative;
+    @include pseudo(before) {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: hsla(200, 76%, 63%, 0.6);
+      transition: opacity 400ms ease-in-out;
+      pointer-events: none;
+    }
+    @include pseudo(after) {
+    }
+    &:hover::before,
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .card-image {
+    display: block;
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.register-card {
+  max-width: 25em;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+.form-card {
+  background-color: var(--clr-main-600);
+  display: flex;
+  justify-content: center;
+  max-width: 20em;
+  min-height: 25em;
+  border-radius: 0.4em;
+  box-shadow: 9px 8px 22px -4px #3a3a3a;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--clr-main-400);
+  color: var(--clr-text-700);
+  border-radius: .5em;
+  max-width: 30em;
+
+  .review-description{
+    max-width: 40ch;
+  }
+
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+
+    .avatar {
+      max-width: 3em;
+      border-radius: 100vw;
+    }
+    .username {
+      font-weight: 600;
+    }
+  }
+  .additional-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+}
+
+.invisible {
+  display: none;
+}
+
+.product-card{
+  max-width: 25em;
+  border-radius: 1em;
+  @include flex(column);
+  background-color: var(--clr-main-400);
+  padding: 1em 2em;
+  min-height: 30em;
+
+
+  .product-img{
+    display: block;
+    max-width: 100%;
+  }
+  .product-description{
+    max-width: 40ch;
+  }
+}
+
+
+.category-card{
+  background-color: var(--clr-main-400);
+  border-radius: 1em;
+  max-width: 15em;
+  min-height: 20em;
+  @include flex(column);
+
+  &-img{
+    max-width: 100%;
+  }
+  &-header{
+    // padding: 1em;
+    margin-block: 2em;
+  }
+}

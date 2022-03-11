@@ -1,0 +1,76 @@
+@use '../abstracts/mixins' as *;
+
+
+.login-form, .form{
+    @include flex(column, unset, unset);
+    padding: 2em 3em;
+    border-radius: .4em;
+    background-color: var(--clr-main-400);
+    position: relative;
+    gap: 1em;
+    max-width: 20em;
+    
+    .form-item{
+        display: flex;
+        flex-direction: column;
+        gap: .65em;
+    }
+    input, textarea{
+        border: none;
+        outline: none;
+        padding: .4em .5em;
+        margin-left: 1em;
+
+        @include focus-input;
+    }
+    input[type=radio]{
+        visibility: hidden;
+    }
+    input[type=radio]+label{
+        position: relative;
+        
+        &::after{
+            content: "\2605";
+            position: absolute;
+            font-size: 1.3rem;
+            color: gold;
+
+            
+        }
+    }
+    label{
+        font-size: clamp(.8rem, .9rem + 3vw, 1.4rem);
+        color: var(--clr-text-900);
+        font-weight: 400;
+    }
+}
+
+.register-form{
+    padding: 1em 1.5em;
+    width: 100%;
+    background-color: var(--clr-main-400);
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    border-radius: .4em;
+    position: relative;
+
+    input{
+        padding: .4em .5em;
+        border: none;
+        outline: none;
+        margin-left: 1em;
+        max-width: 80%;
+
+        @include focus-input;
+    }
+    label{
+        font-size: clamp(.8rem, .9rem + 3vw, 1.4rem);
+        color: var(--clr-text-900);
+        font-weight: 400;
+        margin-block: .75em;
+    }
+    button{
+        align-self: center;
+    }
+}

@@ -1,0 +1,33 @@
+.form-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgb(black, .4);
+    
+    form{
+        z-index: 9999;
+
+    }
+
+    .modal-content{
+        max-width: 25em;
+
+        // pointer-events: all;
+    }
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.showModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

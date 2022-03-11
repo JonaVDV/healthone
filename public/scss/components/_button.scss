@@ -1,0 +1,18 @@
+.btn {
+  background: var(--clr-main-300);
+  color: var(--clr-text-700);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 900;
+  border: none;
+  padding: 0.6em 0.8em;
+  border-radius: 0.4rem;
+  margin-top: 1.3rem;
+  position: relative;
+  z-index: 2;
+  transition: background 300ms ease-in;
+
+
+  &:hover {
+    background: linear-gradient(180deg, var(--clr-main-300) 50%, white 100%);
+  }
+}

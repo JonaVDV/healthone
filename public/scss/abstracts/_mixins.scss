@@ -1,0 +1,45 @@
+@use "./variables";
+
+@mixin mq($breakpoint) {
+  $size: map-get(variables.$breakpoints, $breakpoint);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin show-on-click {
+  .show-on-click {
+    display: block;
+    @content;
+  }
+}
+
+@mixin grid-auto-responsive($min-size, $max-size: 1fr) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-size, $max-size));
+  place-items: center;
+  gap: 1fr;
+  @content;
+}
+
+@mixin pseudo($type, $content: "", $pos: absolute) {
+  &::#{$type} {
+    content: $content;
+    position: $pos;
+    @content;
+  }
+}
+
+@mixin focus-input() {
+  &:focus,
+  &:focus-within {
+    box-shadow: 0px 0.25em 0px 0px var(--clr-main-300);
+  }
+}
